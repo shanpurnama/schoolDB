@@ -108,6 +108,7 @@ function updateStudent(req, res) {
         id = '${req.params.id}'`
     schoolDB.query(sql, function(err) {
         if (err) {
+            console.log(err)
             res.status(500).json({
                 message: 'Internal Server Error'
             })

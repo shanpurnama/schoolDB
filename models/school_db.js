@@ -1,9 +1,9 @@
 var mysql = require('mysql');
 var schoolDB = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'shandy',
-  password : 'passpass',
-  database : 'school_db'
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USER,
+  password : process.env.DB_PASSWORD,
+  database : process.env.DB_NAME
 });
  
 schoolDB.connect()
