@@ -1,7 +1,6 @@
 const schoolDB = require('../models/school_db')
 const { v4: uuidv4 } = require('uuid')
 
-
 function getStudentBySubjectId(req, res) {
     const sql = `
     SELECT
@@ -28,7 +27,6 @@ function getStudentBySubjectId(req, res) {
     })
 }
 
-
 function getByFirstName(req, res) {
     const sql = `
     SELECT
@@ -54,7 +52,6 @@ function getByFirstName(req, res) {
         }
     })
 }
-
 
 function getAll(req, res) {
     const sql = 'SELECT * FROM students'
