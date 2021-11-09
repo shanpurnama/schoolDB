@@ -37,8 +37,9 @@ function authorize(req, res, next) {
             if (data[0].subject_id === decode.subject_id) {
               next()
             } else {
+              console.log(err)
               res.status(400).json({
-                message: 'anuthorize'
+                message: 'Unautorized'
               })
             }
           }

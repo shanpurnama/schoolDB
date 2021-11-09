@@ -37,8 +37,47 @@ function create(req, res) {
    })
 }
 
+function updateSubject(req, res) {
+    const sql = `
+    UPDATE
+        subjects
+    SET
+        subject_name = '${req.body.subject_name}'
+    WHERE
+        id = '${req.params.id}'`
+    schoolDB.query(sql, function(err) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({
+                message: 'internal server error'
+            })
+        } else {
+            res.status(201).json({
+                message: 'successfully update subject'
+            })
+        }
+    })
+}
+
+function deleteSubject(req, res) {
+    const sql = `DELETE FROM subjects WHERE id = '${req.params.id}'`
+    schoolDB.query(sql, function(err) {
+        if (err) {
+            res.status(500).json({
+                message: 'Internal server error'
+            })
+        } else {
+            res.status(201).json({
+                message: 'successfully delete'
+            })
+        }
+    })
+}
+
 module.exports = {
     create,
-    getAll
+    getAll,
+    updateSubject,
+    deleteSubject
     
 }

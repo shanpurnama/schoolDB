@@ -4,8 +4,8 @@ const teacherController = require('../controllers/controllerTeacher')
 const verify = require('../middleware/verify')
 
 router.get('/', teacherController.getAll)
-router.post('/', teacherController.create)
-router.put('/:id', teacherController.updateDataTeacher)
+router.post('/add', teacherController.create)
+router.put('/edit/:id', teacherController.updateDataTeacher)
 router.delete('/:id', teacherController.deleteDataTeacher)
 
 router.post('/register', teacherController.register)
